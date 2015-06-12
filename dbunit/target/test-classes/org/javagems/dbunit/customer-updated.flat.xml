@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<customer id="325" first_name="Rahul" last_name="Bloggs"/>
+	<customer id="326" first_name="Abhishek" initial="A" last_name="Kumar"/>
+	<customer id="327" first_name="Pankaj" initial="P" last_name="Kumar"/>
+	<customer id="329" first_name="Rohit" initial="R" last_name="Garg"/>
+</dataset>

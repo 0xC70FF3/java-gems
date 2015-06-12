@@ -1,0 +1,6 @@
+org/javagems/mailunit/MockTransport.class
+org/javagems/mailunit/Aliases.class
+org/javagems/mailunit/MockStore.class
+org/javagems/mailunit/Mailbox.class
+org/javagems/mailunit/MockFolder.class
+org/javagems/mailunit/Mailbox$1.class

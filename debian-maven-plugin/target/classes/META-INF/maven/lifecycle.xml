@@ -1,0 +1,10 @@
+<lifecycles>
+    <lifecycle>
+        <id>debianPackage</id>
+        <phases>
+            <phase>
+                <id>package</id>
+            </phase>
+        </phases>
+    </lifecycle>
+</lifecycles>

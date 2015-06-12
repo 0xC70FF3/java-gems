@@ -1,0 +1,6 @@
+/usr/share/workspaces/christophe/java-gems/dbunit/src/test/java/org/javagems/dbunit/TestDBMockCloseConnections.java
+/usr/share/workspaces/christophe/java-gems/dbunit/src/test/java/org/javagems/dbunit/TestH2DBMockWithSchemas.java
+/usr/share/workspaces/christophe/java-gems/dbunit/src/test/java/org/dbunit/dataset/TestJSONDataSet.java
+/usr/share/workspaces/christophe/java-gems/dbunit/src/test/java/org/javagems/dbunit/TestMySQLDBMockWithSchemas.java
+/usr/share/workspaces/christophe/java-gems/dbunit/src/test/java/org/javagems/dbunit/TestH2DBMock.java
+/usr/share/workspaces/christophe/java-gems/dbunit/src/test/java/org/javagems/dbunit/TestMySQLDBMock.java

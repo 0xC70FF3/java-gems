@@ -1,0 +1,7 @@
+/usr/share/workspaces/christophe/java-gems/hibernate/src/main/java/org/javagems/core/hibernate/Auditable.java
+/usr/share/workspaces/christophe/java-gems/hibernate/src/main/java/org/javagems/core/hibernate/HibernateUtils.java
+/usr/share/workspaces/christophe/java-gems/hibernate/src/main/java/org/javagems/core/hibernate/SessionFactoryBuilder.java
+/usr/share/workspaces/christophe/java-gems/hibernate/src/main/java/org/javagems/core/hibernate/DAO.java
+/usr/share/workspaces/christophe/java-gems/hibernate/src/main/java/org/javagems/core/hibernate/generators/Random5DigitsLongGenerator.java
+/usr/share/workspaces/christophe/java-gems/hibernate/src/main/java/org/javagems/core/hibernate/SingleTransactionDAOAdapter.java
+/usr/share/workspaces/christophe/java-gems/hibernate/src/main/java/org/javagems/core/hibernate/generators/UUIDGenerator.java

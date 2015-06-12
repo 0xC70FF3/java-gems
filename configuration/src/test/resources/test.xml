@@ -1,0 +1,10 @@
+<config>
+	<locos>
+		<instance>development</instance>
+		<timeout>7</timeout>
+		<timeout>7</timeout>
+	</locos>
+	<my_section>
+	    <my_value>2</my_value>
+	</my_section>
+</config>

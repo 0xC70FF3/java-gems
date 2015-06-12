@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<table name="customer">
+		<column>id</column>
+		<column>first_name</column>
+		<column>initial</column>
+		<column>last_name</column>
+		<row>
+			<value>325</value>
+			<value>Rahul</value>
+			<null/>
+			<value>Chand</value>
+		</row>
+		<row>
+			<value>326</value>
+			<value>Abhishek</value>
+			<value>A</value>
+			<value>Kumar</value>
+		</row>
+		<row>
+			<value>327</value>
+			<value>Pankaj</value>
+			<value>P</value>
+			<value>Kumar</value>
+		</row>
+		<row>
+			<value>329</value>
+			<value>Rohit</value>
+			<value>R</value>
+			<value>Garg</value>
+		</row>
+	</table>
+</dataset>

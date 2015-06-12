@@ -1,0 +1,8 @@
+org/javagems/core/couchbase/CouchbaseUtils$1.class
+org/javagems/core/couchbase/CouchbaseUtils.class
+org/javagems/core/couchbase/CouchbaseKey.class
+org/javagems/core/couchbase/CouchbaseUtils$Builder.class
+org/javagems/core/couchbase/SingleTransactionCouchbaseDAO.class
+org/javagems/core/couchbase/CouchbaseUtils$StaticBuilder.class
+org/javagems/core/couchbase/CouchbaseClientFactory.class
+org/javagems/core/couchbase/CouchbaseDAO.class

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+  <name>debian-maven-plugin</name>
+  <description></description>
+  <groupId>org.javagems.core</groupId>
+  <artifactId>debian-maven-plugin</artifactId>
+  <version>1.0.0</version>
+  <goalPrefix>debian</goalPrefix>
+  <isolatedRealm>false</isolatedRealm>
+  <inheritedByDefault>true</inheritedByDefault>
+  <mojos>
+    <mojo>
+      <goal>debian</goal>
+      <description>Maven AntRun Mojo.
+&lt;br/&gt;
+This plugin provides the capability of calling Ant tasks
+from a POM by running the nested ant tasks inside the &amp;lt;tasks/&amp;gt;
+parameter. It is encouraged to move the actual tasks to
+a separate build.xml file and call that file with an
+&amp;lt;ant/&amp;gt; task.</description>
+      <requiresDirectInvocation>false</requiresDirectInvocation>
+      <requiresProject>true</requiresProject>
+      <requiresReports>false</requiresReports>
+      <aggregator>false</aggregator>
+      <requiresOnline>false</requiresOnline>
+      <inheritedByDefault>true</inheritedByDefault>
+      <executePhase>package</executePhase>
+      <executeLifecycle>debianPackage</executeLifecycle>
+      <implementation>org.javagems.core.maven.DebianMojo</implementation>
+      <language>java</language>
+      <instantiationStrategy>per-lookup</instantiationStrategy>
+      <executionStrategy>once-per-session</executionStrategy>
+      <threadSafe>true</threadSafe>
+      <parameters>
+        <parameter>
+          <name>buildFile</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description></description>
+        </parameter>
+        <parameter>
+          <name>customTaskPrefix</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description>The xml tag prefix to use for the built in Ant tasks. This prefix needs to be prepended to each task referenced
+in the antrun target config. For example, a prefix of &quot;mvn&quot; means that the attachartifact task is referenced by
+&quot;&amp;lt;mvn:attachartifact&amp;gt;&quot; The default value of an empty string means that no prefix is used for the tasks.</description>
+        </parameter>
+        <parameter>
+          <name>exportAntProperties</name>
+          <type>boolean</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description>Specifies whether the Ant properties should be propagated to the Maven properties.</description>
+        </parameter>
+        <parameter>
+          <name>failOnError</name>
+          <type>boolean</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description>Specifies whether a failure in the ant build leads to a failure of the Maven build.
+
+If this value is &apos;true&apos;, the Maven build will proceed even if the ant build fails.
+If it is &apos;false&apos;, then the Maven build fails if the ant build fails.</description>
+        </parameter>
+        <parameter>
+          <name>localRepository</name>
+          <type>org.apache.maven.artifact.repository.ArtifactRepository</type>
+          <required>false</required>
+          <editable>false</editable>
+          <description>The local Maven repository</description>
+        </parameter>
+        <parameter>
+          <name>pluginArtifacts</name>
+          <type>java.util.List</type>
+          <required>true</required>
+          <editable>false</editable>
+          <description>The plugin dependencies.</description>
+        </parameter>
+        <parameter>
+          <name>project</name>
+          <type>org.apache.maven.project.MavenProject</type>
+          <required>false</required>
+          <editable>false</editable>
+          <description>The Maven project object</description>
+        </parameter>
+        <parameter>
+          <name>propertyPrefix</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description>String to prepend to project and dependency property names.</description>
+        </parameter>
+        <parameter>
+          <name>skip</name>
+          <type>boolean</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description>Specifies whether the Antrun execution should be skipped.</description>
+        </parameter>
+        <parameter>
+          <name>target</name>
+          <type>org.codehaus.plexus.configuration.PlexusConfiguration</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description>The XML for the Ant target. You can add anything you can add between &amp;lt;target&amp;gt; and &amp;lt;/target&amp;gt; in a
+build.xml.</description>
+        </parameter>
+        <parameter>
+          <name>targetName</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description></description>
+        </parameter>
+        <parameter>
+          <name>versionsPropertyName</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description>The name of a property containing the list of all dependency versions. This is used for the removing the versions
+from the filenames.</description>
+        </parameter>
+      </parameters>
+      <configuration>
+        <exportAntProperties implementation="boolean" default-value="false"/>
+        <failOnError implementation="boolean" default-value="true"/>
+        <localRepository implementation="org.apache.maven.artifact.repository.ArtifactRepository">${localRepository}</localRepository>
+        <pluginArtifacts implementation="java.util.List">${plugin.artifacts}</pluginArtifacts>
+        <project implementation="org.apache.maven.project.MavenProject">${project}</project>
+        <skip implementation="boolean" default-value="false">${maven.antrun.skip}</skip>
+        <targetName implementation="java.lang.String" default-value="delivery"/>
+        <versionsPropertyName implementation="java.lang.String" default-value="maven.project.dependencies.versions"/>
+      </configuration>
+      <requirements>
+        <requirement>
+          <role>org.apache.maven.project.MavenProjectHelper</role>
+          <field-name>projectHelper</field-name>
+        </requirement>
+      </requirements>
+    </mojo>
+  </mojos>
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <type>jar</type>
+      <version>2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-antrun-plugin</artifactId>
+      <type>jar</type>
+      <version>1.7</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-project</artifactId>
+      <type>jar</type>
+      <version>2.0.11</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-settings</artifactId>
+      <type>jar</type>
+      <version>2.0.11</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-profile</artifactId>
+      <type>jar</type>
+      <version>2.0.11</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-model</artifactId>
+      <type>jar</type>
+      <version>2.0.11</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-artifact-manager</artifactId>
+      <type>jar</type>
+      <version>2.0.11</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-repository-metadata</artifactId>
+      <type>jar</type>
+      <version>2.0.11</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.wagon</groupId>
+      <artifactId>wagon-provider-api</artifactId>
+      <type>jar</type>
+      <version>1.0-beta-2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-registry</artifactId>
+      <type>jar</type>
+      <version>2.0.11</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-interpolation</artifactId>
+      <type>jar</type>
+      <version>1.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-container-default</artifactId>
+      <type>jar</type>
+      <version>1.0-alpha-9-stable-1</version>
+    </dependency>
+    <dependency>
+      <groupId>classworlds</groupId>
+      <artifactId>classworlds</artifactId>
+      <type>jar</type>
+      <version>1.1-alpha-2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-artifact</artifactId>
+      <type>jar</type>
+      <version>2.0.11</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.ant</groupId>
+      <artifactId>ant</artifactId>
+      <type>jar</type>
+      <version>1.8.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.ant</groupId>
+      <artifactId>ant-launcher</artifactId>
+      <type>jar</type>
+      <version>1.8.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-utils</artifactId>
+      <type>jar</type>
+      <version>2.0.5</version>
+    </dependency>
+  </dependencies>
+</plugin>

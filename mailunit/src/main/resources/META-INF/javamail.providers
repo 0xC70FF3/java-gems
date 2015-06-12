@@ -1,0 +1,6 @@
+# @See http://javamail.kenai.com/nonav/javadocs/javax/mail/Session.html
+# @See https://http://java.net/projects/mock-javamail
+
+protocol=smtp; type=transport; class=org.javagems.mailunit.MockTransport; vendor=javagems.org Java Gems Project;
+protocol=pop3; type=store; class=org.javagems.mailunit.MockStore; vendor=javagems.org Java Gems Project;
+protocol=imap; type=store; class=org.javagems.mailunit.MockStore; vendor=javagems.org Java Gems Project;
