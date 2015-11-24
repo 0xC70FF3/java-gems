@@ -49,7 +49,8 @@
 
 	<modules>
 		<module>debian-maven-plugin</module>
-	
+		
+		<module>benchmark<module>	
 		<module>commons</module>
 		<module>configuration</module>
 		<module>mail</module>
